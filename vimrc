@@ -4,12 +4,11 @@
 "https://github.com/rust-lang/rust.vim"
 "rustup component add rustfmt"
 "rustup component add clippy"
-"go get -v github.com/rogpeppe/godef
 ":BundleInstall
-call plug#begin('~/.vim/plugged')
-Plug 'jaspervdj/stylish-haskell'
-call plug#end()
 
+set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set enc=utf8
+set fencs=utf8,gbk,gb2312,gb18030
 set paste
 set tabstop=4
 set nocompatible               " be iMproved
@@ -26,6 +25,8 @@ Bundle 'Blackrush/vim-gocode'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
 Bundle 'rust-lang/rust.vim'
+"go get -v github.com/rogpeppe/godef
+Bundle 'dgryski/vim-godef'
 
 set formatprg=stylish-haskell
 "autocmd BufWrite *.hs :Autoformat
@@ -66,7 +67,9 @@ let g:rust_clip_command = 'pbcopy'
 filetype plugin indent on
 autocmd BufWritePre *.go :Fmt
 syntax on
-set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-set termencoding=utf-8
-set encoding=utf-8
 set paste
+let g:godef_split=3 "左右打开新窗口的时候
+let g:godef_same_file_in_same_window=1 "函数在同一个文件中时不需要打开新窗口
+"~/.vim/bundle/vim-godef/plugin/godef.vim中添加下面两行
+"autocmd FileType go nnoremap <buffer> gd :call GodefUnderCursor()<cr>
+"autocmd FileType go nnoremap <buffer> <C-]> :call GodefUnderCursor()<cr>
