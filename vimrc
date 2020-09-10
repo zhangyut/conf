@@ -4,6 +4,7 @@
 "https://github.com/rust-lang/rust.vim"
 "rustup component add rustfmt"
 "rustup component add clippy"
+"cp ~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py ~/.vim/
 ":BundleInstall
 
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
@@ -16,6 +17,12 @@ filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+" 新加的YCM插件
+Plugin 'Valloric/YouCompleteMe'
+call vundle#end()
+
 
 " let Vundle manage Vundle
 " required!
